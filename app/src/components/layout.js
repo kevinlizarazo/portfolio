@@ -24,7 +24,7 @@ const Layout = ({ hiddenLogo, children }) => {
 
   return (
     <StyledLayout>
-      <SEO keywords={[`portfolio`, `web developer`, `gatsby`, `react`]} />
+      <SEO title="Kevin Lizarazo" keywords={[`portfolio`, `web developer`, `gatsby`, `react`]} />
       <GlobalStyle />
       <Header hiddenLogo={hiddenLogo}/>
       <main id="main-content">{children}</main>
