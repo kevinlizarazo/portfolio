@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
-import SEO from "../components/seo"
+import SEO from "./seo"
 import GlobalStyle from './style/globalStyle'
 import Header from './header'
 import Footer from './footer'
