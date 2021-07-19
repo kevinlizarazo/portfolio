@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
-
+import SEO from "../components/seo"
 import GlobalStyle from './style/globalStyle'
 import Header from './header'
 import Footer from './footer'
@@ -24,6 +24,7 @@ const Layout = ({ hiddenLogo, children }) => {
 
   return (
     <StyledLayout>
+      <SEO title="Kevin Lizarazo" keywords={[`portfolio`, `web developer`, `gatsby`, `react`]} />
       <GlobalStyle />
       <Header hiddenLogo={hiddenLogo}/>
       <main id="main-content">{children}</main>

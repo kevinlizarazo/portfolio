@@ -7,7 +7,6 @@ import Projects from "../components/projects"
 
 const IndexPage = ({ data }) => (
   <Layout hiddenLogo='hidden'>
-    <SEO title="Kevin Lizarazo" keywords={[`portfolio`, `web developer`, `gatsby`, `react`]} />
       <Hero content={data.bio.edges[0].node} />
       <Projects data={data.projects.edges} />
   </Layout>
