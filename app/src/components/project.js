@@ -30,6 +30,9 @@ const StyledPost = styled.section`
   a {
     font-weight: bold;
   }
+  @media (max-width: 420px) {
+    line-height: 1.75rem;
+  }
 `
 
 const Project = ({ data }) => {

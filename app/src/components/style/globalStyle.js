@@ -60,6 +60,11 @@ const GlobalStyle = createGlobalStyle`
           color: #f25d27;
         }
     }
+
+    p a {
+      display: inline;
+    }
+
     .highlighted {
       box-shadow: inset 0 -2.5rem #f1e740;
     }
