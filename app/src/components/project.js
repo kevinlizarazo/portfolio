@@ -46,7 +46,7 @@ const Project = ({ data }) => {
         <StyledMeta>
           <p className='date'>{frontmatter.date}</p>
           <p className='tech'>{frontmatter.tech}</p>
-          <p className='link'>{frontmatter.link? <a href={frontmatter.link}>View the project here</a> : ''}</p>
+          <p className='link'>{frontmatter.link? <a href={frontmatter.link} target="_blank" rel="noopener noreferrer">View the project here</a> : ''}</p>
         </StyledMeta>
         <StyledPost>
           <MDXProvider components={components}>
