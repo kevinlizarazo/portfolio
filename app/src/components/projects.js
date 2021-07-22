@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
+var moment = require('moment')
 
 const StyledSection = styled.section`
   margin-top: 25px;
@@ -36,7 +37,10 @@ const Projects = ({ data }) => {
   })
 
   cards.sort((a, b) => {
-    return new Date(b.props.date) - new Date(a.props.date)
+    let dateA = moment(a.props.date, 'MMMM YYYY', true).format()
+    let dateB = moment(b.props.date, 'MMMM YYYY', true).format()
+    //2019-02-01T00:00:00-05:00 <-- safari-friendly!
+    return new Date(dateB) - new Date(dateA)
   })
 
   return (
