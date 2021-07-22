@@ -8,7 +8,7 @@ import Layout from "./layout"
 
 const components = {
   Link
-};
+}
 
 const StyledProject = styled.section`
   border-top: 1px solid lightgrey;

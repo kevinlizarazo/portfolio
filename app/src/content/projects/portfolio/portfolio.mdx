@@ -1,0 +1,102 @@
+---
+slug: "portfolio"
+title: "My Portfolio Redesign"
+subtitle: "Combining Gatsby, React, CSS-in-JS, and Markdown"
+tech: "Gatsby, React, GraphQL, styled-components, Markdown, MDX, Netlify, CMS"
+date: "August 2021"
+link: "https://github.com/kevinlizarazo/portfolio"
+---
+
+I recently decided to rebuild my portfolio site, which was previously an HTML page made to look exactly like [my resume](https://kevinlizarazo.com/LIZARAZO_kevin_cv.pdf). For this redesign, I wanted a simpler user experience. It was important that my name, occupation, and contact information were easily noticeable. I also wanted some of my favorite projects to be easily accessible from the front page. To optimize code and content updates, I wanted the site to pull data from Markdown files. 
+
+Above all, I wanted to use React, in order to get more practice with building components and passing data between them.
+
+Using GraphQL queries, I generate each "favorite project" page dynamically. My app looks for any markdown files in my `/content/projects/` folder, reads their `slug` key, and generates a page titled with that key's value: 
+
+---
+```Javascript
+// gatsby-node.js
+
+exports.createPages = async function ({ actions, graphql }) {
+  const { data } = await graphql(`
+    query {
+      projects: allMdx(filter: {fileAbsolutePath: {regex: "/projects/"}}) {
+        edges {
+          node {
+            frontmatter {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `)
+  data.projects.edges.forEach(edge => {
+    const slug = edge.node.frontmatter.slug
+    actions.createPage({
+      path: slug,
+      component: require.resolve(`./src/components/project.js`),
+      context: { slug: slug },
+    })
+  })
+}
+```
+---
+
+I have a [`Project` component](https://github.com/kevinlizarazo/portfolio/blob/main/app/src/components/project.js) that the script uses as a template for each slug, which reads and renders page data. The data is stored as a frontmatter object, followed by regular Markdown, which is also parsed by [MDX](https://mdxjs.com/). MDX is just Markdown that lets you write JSX within the body, in case I ever want to include a React component in a Markdown file.
+
+Example project.mdx file:
+
+---
+```
+---
+slug: "portfolio"
+title: "My Portfolio Redesign"
+subtitle: "Gatsby-powered, React-driven, Netlify-hosted"
+tech: "Gatsby, React, GraphQL, styled-components, Markdown, MDX, Netlify, CMS"
+date: "August 2021"
+link: "https://github.com/kevinlizarazo/portfolio"
+---
+
+I recently decided to rebuild my portfolio site...
+```
+---
+
+I also have a `Projects` component on the front page that simply queries each Markdown file in `/projects` for their title, subtitle, and date, rendering out one "card" for each successful query.
+
+To style everything, I use [`styled-components`](https://styled-components.com/), a form of CSS-in-JS, which pairs with React quite conveniently. It allows for tidier organization when it comes to styling each component. On previous projects, I've sometimes found that externalized CSS could get pretty wild pretty quickly.
+
+---
+```JSX
+// styled-components in action:
+
+import styled from "styled-components"
+
+const StyledPost = styled.section`
+  margin-top: 25px;
+  a {
+    font-weight: bold;
+  }
+  @media screen and (max-width: 420px) {
+    line-height: 1.75rem;
+  }
+`
+
+const components = {
+  Link
+}
+
+const Post = ({ data }) => {
+  const { frontmatter, body } = data.mdx
+  return (
+    <StyledPost>
+      <MDXProvider components={components}>
+        <MDXRenderer>{body}</MDXRenderer>
+      </MDXProvider>
+    </StyledPost>
+  )
+}
+```
+---
+
+My site is now like a compact, lightweight CMS. The process of adding new highlighted projects is trivial: all I do is create and push a new Markdown file.  I'm looking forward to using these technologies for future projects!
