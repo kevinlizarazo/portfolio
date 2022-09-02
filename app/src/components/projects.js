@@ -15,8 +15,8 @@ const StyledSection = styled.section`
     }
   }
   .info{
-    border: 1px solid black;
-    padding: 10px;
+    border-bottom: 1px solid black;
+    padding: 10px 0px 5px 0px;
   }
 `
 
