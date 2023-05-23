@@ -7,7 +7,7 @@ const StyledHeader = styled.header`
   max-width: 62.5rem;
   height: 3.25rem;
   margin: 0 auto;
-  padding: 0 2.5rem;
+  padding: 0 1.5rem;
   background: white;
   display: grid;
   grid-template-columns: 80% 20%;
