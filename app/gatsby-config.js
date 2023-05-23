@@ -19,6 +19,12 @@ module.exports = {
             },
           },
           {
+            resolve: `gatsby-remark-gifs`,
+            options: {
+              maxWidth: 480,
+            },
+          },
+          {
             resolve: "gatsby-remark-external-links",
             options: {
               target: "_blank",

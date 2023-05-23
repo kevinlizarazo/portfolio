@@ -30,6 +30,9 @@ const StyledPost = styled.section`
   a {
     font-weight: bold;
   }
+  img {
+    max-width: 100%;
+  }
   @media (max-width: 420px) {
     line-height: 1.75rem;
   }
