@@ -17,12 +17,6 @@ At its core, Concierge is an innovative tool designed to provide insights into y
 
 The application is still in its developmental phase, but its future is promising. Soon, it will feature playlist analysis and will recommend new music based on customizable filters, such as genre, mood, and energy. The whole idea is to help you explore music based on your tastes and maybe find your new favorite artist or song along the way.
 
-## Behind the Scenes
-
-The construction of Concierge involved Next.js, React, and Material UI to ensure a seamless user experience and a visually appealing interface. For the authentication part and session management, the application leverages Next Auth. As for the data retrieval and analysis, it uses Spotify's Web API and OpenAI's Chat API (gpt-3.5-turbo), allowing for an interesting combination of music data and AI commentary. 
-
-Before using the app, please note that your interaction with these services is governed by their respective privacy policies. Therefore, it's crucial to familiarize yourself with [Spotify's](https://www.spotify.com/legal/privacy-policy/) and [OpenAI's](https://platform.openai.com/docs/use-case-policy) policies.
-
 ## Want to Try Concierge?
 
 To use Concierge, you must be whitelisted in the application's registry on Spotify, as it's currently "In Development." To get whitelisted, send me the email you used to sign up with Spotify, and you'll be all set! Alternatively, tech-savvy users can register their app within Spotify's developer platform and run the code locally.
@@ -32,5 +26,15 @@ To use Concierge, you must be whitelisted in the application's registry on Spoti
 Running the application locally requires some setup. You'll need an .env.local file with your specific Spotify client ID and secret, along with an OpenAI API key. If you wish to deploy on Vercel, there are some additional environment variables you need to set up within your project dashboard. 
 
 In conclusion, Concierge aims to help you delve deeper into your music-listening habits while discovering new tunes that fit your preferences. I hope you enjoy using it as much as I enjoyed building it. Don't hesitate to reach out with any questions or feedback, and stay tuned for more exciting updates! 
+
+## Behind the Scenes
+
+The construction of Concierge involved Next.js, React, and Material UI to ensure a seamless user experience and a visually appealing interface. For the authentication part and session management, the application leverages Next Auth. As for the data retrieval and analysis, it uses Spotify's Web API and OpenAI's Chat API (gpt-3.5-turbo), allowing for an interesting combination of music data and AI commentary. 
+
+Here's how the /learn page, which renders all of the user's top items and their analyses, is drawn out: 
+
+![concierge-diagram](https://raw.githubusercontent.com/kevinlizarazo/concierge-app/main/public/diagrams/learn.png)
+
+Before using the app, please note that your interaction with these services is governed by their respective privacy policies. Therefore, it's crucial to familiarize yourself with [Spotify's](https://www.spotify.com/legal/privacy-policy/) and [OpenAI's](https://platform.openai.com/docs/use-case-policy) policies.
 
 ---
