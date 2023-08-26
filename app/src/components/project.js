@@ -47,7 +47,7 @@ const Project = ({ data }) => {
         <h1>{frontmatter.title}</h1>
         <h2>{frontmatter.subtitle}</h2>
         <StyledMeta>
-          <p className='date'>{frontmatter.date}</p>
+          {/* <p className='date'>{frontmatter.date}</p> */}
           <p className='tech'>{frontmatter.tech}</p>
           <p className='link'>{frontmatter.link? <a href={frontmatter.link} target="_blank" rel="noopener noreferrer">View the project here</a> : ''}</p>
         </StyledMeta>
