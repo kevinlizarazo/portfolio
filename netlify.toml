@@ -1,3 +1,4 @@
 [build]
+  base = "/"
   publish = "public"
   command = "mkdir -p public && cp index.html public/"
