@@ -6,8 +6,7 @@
     <title>Kevin Lizarazo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo&display=swap" rel="stylesheet">
-    <!-- Privacy-friendly analytics by Plausible -->
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500&display=swap" rel="stylesheet">
     <script async src="https://plausible.io/js/pa-8KoSQtn9DfTQTQhNQek0r.js"></script>
     <script>
     window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
@@ -19,6 +18,7 @@
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             background: #000;
             color: #fff;
@@ -27,38 +27,135 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 1rem;
-            overflow: hidden;
+            padding: 1.5rem;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
+
         main {
-            text-align: center;
-            line-height: 2;
             max-width: 600px;
             width: 100%;
         }
+
+        header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
         h1 {
             font-size: clamp(2rem, 6vw, 2.5rem);
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
         }
+
         h2 {
-            font-size: clamp(1rem, 4vw, 1.5rem);
-            font-weight: normal;
+            font-size: clamp(0.875rem, 3vw, 1.05rem);
+            font-weight: 400;
+            color: #999;
+            margin-top: 0.75rem;
+            letter-spacing: 0.02em;
+            line-height: 1.5;
         }
-        header {
-            margin-bottom: 2rem;
+
+        .rows {
+            list-style: none;
         }
-        section {
-            margin-bottom: 1rem;
+
+        .rows li {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            min-height: 44px;
+            padding: 0.875rem 0;
+            border-bottom: 1px solid #1a1a1a;
+            font-size: clamp(0.875rem, 3vw, 1rem);
         }
+
+        .rows li:first-child {
+            border-top: 1px solid #1a1a1a;
+        }
+
+        .label {
+            color: #999;
+            flex-shrink: 0;
+            padding-top: 0.1em;
+        }
+
+        .value {
+            text-align: right;
+            overflow-wrap: break-word;
+            word-break: break-word;
+        }
+
+        .value .links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.5rem;
+        }
+
+        .value .links li {
+            border: none;
+            padding: 0;
+            min-height: 0;
+            font-size: inherit;
+        }
+
+        .value .links .secondary {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .value .links .secondary a {
+            color: #999;
+        }
+
         a {
             color: #fff;
-            text-decoration: underline;
-            text-underline-offset: 4px;
+            text-decoration: none;
+            position: relative;
+            display: inline-block;
         }
-        .highlighter {
-            background: yellow; 
-            color: black; 
-            padding: 5px; 
-            margin-right: 5px;
+
+        a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #fff;
+            transition: width 0.3s ease;
+        }
+
+        a:hover::after,
+        a:focus-visible::after {
+            width: 100%;
+        }
+
+        a:focus-visible {
+            outline: 2px solid #fff;
+            outline-offset: 4px;
+        }
+
+        .secondary a::after {
+            background: #999;
+        }
+
+        .arrow {
+            font-size: 0.75em;
+            margin-left: 0.35em;
+            opacity: 0.5;
+            display: inline-block;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+
+        a:hover .arrow,
+        a:focus-visible .arrow {
+            opacity: 1;
+            transform: translate(2px, -2px);
         }
     </style>
 </head>
@@ -66,16 +163,28 @@
     <main>
         <header>
             <h1>Kevin Lizarazo</h1>
-            <h2>Software engineering, journalism, cybersecurity</h2>
+            <h2>Software engineering · Journalism · Cybersecurity</h2>
         </header>
-        <section>
-            <p>Contact me: kevin [at] lizarazo {dot} dev</p>
-        </section>
-        <section>
-            <p><span class="highlighter">Latest:</span> <a href="https://affordability.lizarazo.dev">Affordability Tracker</a></p>
-            <p><a href="https://healthcare.lizarazo.dev">Healthcare Cost Tracker</a></p>
-            <p><a href="https://housing.lizarazo.dev">Housing Market Tracker</a></p>
-        </section>
+        <ul class="rows">
+            <li>
+                <span class="label">Projects</span>
+                <span class="value">
+                    <ul class="links">
+                        <li><a href="https://econtracker.lizarazo.dev/" target="_blank" rel="noopener">Affordability Tracker<span class="arrow">↗</span></a></li>
+                        <li class="secondary"><a href="https://healthcare.lizarazo.dev" target="_blank" rel="noopener">Healthcare Cost Tracker<span class="arrow">↗</span></a></li>
+                        <li class="secondary"><a href="https://housing.lizarazo.dev" target="_blank" rel="noopener">Housing Market Tracker<span class="arrow">↗</span></a></li>
+                    </ul>
+                </span>
+            </li>
+            <li>
+                <span class="label">Contact</span>
+                <span class="value"><a href="https://docs.google.com/forms/d/e/1FAIpQLSdIsuZedwGBb4UD3yHutjGeKEytcq4UeewDMeJ0CSUGtmaoZw/viewform" target="_blank" rel="noopener">Get in touch<span class="arrow">↗</span></a></span>
+            </li>
+            <li>
+                <span class="label">Location</span>
+                <span class="value">New York City</span>
+            </li>
+        </ul>
     </main>
 </body>
 </html>
