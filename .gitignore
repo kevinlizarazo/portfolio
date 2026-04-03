@@ -1,3 +1,16 @@
+# Dependencies
+node_modules/
+
+# Environment
+.env
+.env.*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
 
 # Local Netlify folder
 .netlify
