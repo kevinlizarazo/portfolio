@@ -12,5 +12,5 @@ Thumbs.db
 # Logs
 *.log
 
-# Local Netlify folder
-.netlify
+# Cloudflare
+.wrangler
